@@ -47,6 +47,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9465a5a09fc138e449897988b56571a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerHeroHealth: 0
+  enemyHeroHealth: 0
+  playerHealthText: {fileID: 1499323428555985892, guid: 0f27f9c11dcfce841be25a75a2cf87c1, type: 3}
+  enemyHealthText: {fileID: 3464374106951657627, guid: 985759c032c398146a73dbf4ea677f12, type: 3}
   PlayingCard: 0
 --- !u!1001 &3544705998468348239
 PrefabInstance:

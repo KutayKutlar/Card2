@@ -16,6 +16,14 @@ public class CharacterStats : MonoBehaviour
     public Card.AttackPattern attackPattern;
     public Card.PriorityTarget priorityTarget;
 
+    public bool isDead
+    {
+        get
+        {
+            return health <= 0;
+        }
+    }
+    
     private bool statsSet = false;
 
     void Update()
@@ -25,7 +33,7 @@ public class CharacterStats : MonoBehaviour
             SetStartStats();
         }
     }
-
+    
     private void SetStartStats()
     {
         cardName = characterStartData.cardName;

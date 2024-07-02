@@ -10,8 +10,10 @@ public class DeckManager : MonoBehaviour
     public int maxHandSize = 12;
     private HandManager handManager;
     private DrawPileManager drawPileManager;
-    private bool startBattleRun = true;
-
+    public bool startBattleRun = true;
+    public static DeckManager Instance;
+    
+    
     void Start()
     {
         //Load all card assets from the Resources folder
@@ -23,6 +25,11 @@ public class DeckManager : MonoBehaviour
 
     void Awake()
     {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+        }
+        Instance = this;
         if (drawPileManager == null)
         {
             drawPileManager = FindObjectOfType<DrawPileManager>();

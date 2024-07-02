@@ -16,9 +16,16 @@ public class HandManager : MonoBehaviour
     public int maxHandSize;
     public List<GameObject> cardsInHand = new List<GameObject>(); //Hold a list of the card objects in our hand
 
-    void Start()
+    public static HandManager Instance;
+    
+    private void Awake()
     {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+        }
 
+        Instance = this;
     }
 
     public void AddCardToHand(Card cardData)

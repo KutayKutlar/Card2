@@ -1,6 +1,7 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
-
+using NaughtyAttributes;
 public class GridManager : MonoBehaviour
 {
     public int width = 8;
@@ -8,8 +9,25 @@ public class GridManager : MonoBehaviour
     public GameObject gridCellPrefab; // Assign a prefab for the grid outline in the inspector
     public List<GameObject> gridObjects = new List<GameObject>();
     public GameObject[,] gridCells;
+    public static GridManager Instance;
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+        }
+        Instance = this;
+    }
 
-
+    [Button("Test")]
+    public void Test()
+    {
+        foreach (var grid in gridCells)
+        {
+            print(grid.gameObject.name);
+        }
+       
+    }
     void Start()
     {
         CreateGrid();
@@ -58,5 +76,11 @@ public class GridManager : MonoBehaviour
             }
         }
         else return false;
+    }
+
+    public void ClearGrid(GridCell gridCell)
+    {
+        gridCell.objectInCell = null;
+        gridCell.cellFull = false;
     }
 }

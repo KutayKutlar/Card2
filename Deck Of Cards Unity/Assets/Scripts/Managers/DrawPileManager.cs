@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using SinuousProductions;
 using TMPro;
@@ -14,6 +15,18 @@ public class DrawPileManager : MonoBehaviour
     private DiscardManager discardManager;
 
     public TextMeshProUGUI drawPileCounter;
+
+    public static DrawPileManager Instance;
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+        }
+
+        Instance = this;
+    }
 
     void Start()
     {

@@ -1,4 +1,6 @@
+using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using SinuousProductions;
 using UnityEngine;
 
@@ -13,4 +15,6 @@ public class Character : Card
     public int range;
     public AttackPattern attackPattern;
     public PriorityTarget priorityTarget;
+
+    
 }
